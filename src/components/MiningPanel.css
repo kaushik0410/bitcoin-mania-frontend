@@ -1,0 +1,318 @@
+/* Mining Panel Styling */
+.mining-panel {
+    background-color: #f7f7f7;
+    padding: 30px;
+    border-radius: 15px;
+    width: 70%;
+    margin: 0 auto;
+    text-align: center;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.mining-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0;
+    flex-wrap: wrap;
+}
+
+.btc-mined {
+    text-align: left;
+    flex: 2;
+}
+
+.btc-mined .label {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.btc-mined .value {
+    font-size: 28px;
+    font-weight: bold;
+    color: #FF9900;
+}
+
+.session-info {
+    text-align: right;
+    flex: 1;
+    font-size: 16px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+/* Available Miners Styling */
+.available-miners {
+    padding: 20px;
+    text-align: center;
+}
+
+.miner-cards-container {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.miner-card {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 20px;
+    width: 250px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+    text-align: center;
+}
+
+.miner-card:hover {
+    transform: translateY(-5px);
+}
+
+.purchase-button {
+    margin-top: 10px;
+    padding: 8px 16px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.purchase-button:hover {
+    background-color: #0056b3;
+}
+
+.section-divider {
+    border: none;
+    border-top: 2px solid #ccc;
+    margin: 40px auto;
+    width: 80%;
+}
+
+.mining-sessions-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.free-mining-panel-card {
+    background-color: #ffffff;
+    border: 2px solid #e0e0e0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    padding: 30px 20px;
+    margin: 30px auto;
+    /* max-width: 400px; */
+    text-align: center;
+    width: 40vw;
+}
+
+.start-free-mining-button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.start-free-mining-button:hover {
+    background-color: #218838;
+}
+
+.start-free-mining-button:disabled {
+    background-color: gray;
+    cursor: not-allowed;
+}
+
+.ad-mining-panel-card {
+    background-color: #ffffff;
+    border: 2px solid #e0e0e0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    padding: 30px 20px;
+    margin: 30px auto;
+    /* max-width: 400px; */
+    text-align: center;
+    width: 40vw;
+}
+
+.start-ad-mining-button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.start-ad-mining-button:hover {
+    background-color: #0056b3;
+}
+
+.start-ad-mining-button:disabled {
+    background-color: gray;
+    cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+    .mining-sessions-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .free-mining-panel-card,
+    .ad-mining-panel-card {
+        width: 60vw;
+    }
+}
+
+.session-button {
+    padding: 8px 12px;
+    margin-top: 8px;
+    background-color: #f2a900;
+    /* Bitcoin orange */
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.session-button:hover {
+    background-color: #d98d00;
+}
+
+.session-list {
+    margin-top: 10px;
+    background: #f5f5f5;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.session-item {
+    padding: 5px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.session-item:last-child {
+    border-bottom: none;
+}
+
+/* Modal Popup */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+
+.modal-content {
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    overflow-y: auto;
+    height: 50vh;
+    width: 400px;
+    max-width: 90%;
+    text-align: center;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.close-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #f2a900;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-button:hover {
+    background-color: #d98d00;
+}
+
+.session-list {
+    margin-top: 20px;
+}
+
+.session-item {
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.session-item:last-child {
+    border-bottom: none;
+}
+
+.session-table-container {
+    overflow-x: auto;
+    margin-top: 20px;
+}
+
+.session-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.session-table th,
+.session-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+.session-table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+/* Full-screen ad container */
+/* #ad-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.adsbygoogle {
+    width: 100% !important;
+    height: 100% !important;
+} */
