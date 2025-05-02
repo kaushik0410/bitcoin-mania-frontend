@@ -6,6 +6,7 @@ const Profile = ({ userDetails, updateUserDetails, setUser }) => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [referralCount, setReferralCount] = useState(0);
+  const backendAPI = "https://bitcoin-mania-backend.onrender.com";
 
   console.log("Form Data:", formData);
 
@@ -20,7 +21,8 @@ const Profile = ({ userDetails, updateUserDetails, setUser }) => {
     setError('');
 
     try {
-      const res = await fetch('http://localhost:5000/api/auth/update-user', {
+      // const res = await fetch('http://localhost:5000/api/auth/update-user', {
+      const res = await fetch(`${backendAPI}/api/auth/update-user`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -56,7 +58,8 @@ const Profile = ({ userDetails, updateUserDetails, setUser }) => {
   useEffect(() => {
     const fetchReferralCount = async () => {
       try {
-        const res = await fetch(`http://localhost:5000/api/auth/referral-count/${userDetails.referralCode}`);
+        // const res = await fetch(`http://localhost:5000/api/auth/referral-count/${userDetails.referralCode}`);
+        const res = await fetch(`${backendAPI}/api/auth/referral-count/${userDetails.referralCode}`);
         const data = await res.json();
         setReferralCount(data.count);
       } catch (err) {

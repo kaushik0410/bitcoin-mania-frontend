@@ -7,6 +7,7 @@ const Login = ({ onLoginSuccess }) => {
   const [isRegistering, setIsRegistering] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const backendAPI = "https://bitcoin-mania-backend.onrender.com";
 
   const toggleForm = () => {
     setIsRegistering(!isRegistering);
@@ -24,7 +25,8 @@ const Login = ({ onLoginSuccess }) => {
     const endpoint = isRegistering ? '/api/auth/register' : '/api/auth/login';
 
     try {
-      const res = await axios.post(`http://localhost:5000${endpoint}`, formData, {
+      // const res = await axios.post(`http://localhost:5000${endpoint}`, formData, {
+      const res = await axios.post(`${backendAPI}${endpoint}`, formData, {
         withCredentials: true,
       });
       if (res.data && onLoginSuccess) {

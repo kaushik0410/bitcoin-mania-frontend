@@ -15,6 +15,8 @@ const MiningPanel = ({ user }) => {
 
   const [userCountry, setUserCountry] = useState('');
 
+  const backendAPI = "https://bitcoin-mania-backend.onrender.com";
+
   const handleOpenSessionsModal = () => {
     setShowSessionsModal(true);
   };
@@ -42,7 +44,8 @@ const MiningPanel = ({ user }) => {
     setFreeMining(true);
 
     try {
-      const response = await fetch("http://localhost:5000/api/mining/start-mining", {
+      // const response = await fetch("http://localhost:5000/api/mining/start-mining", {
+      const response = await fetch(`${backendAPI}/api/mining/start-mining`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -57,7 +60,8 @@ const MiningPanel = ({ user }) => {
     }
 
     try {
-      const response = await fetch("http://localhost:5000/api/mining/watch-ad", {
+      // const response = await fetch("http://localhost:5000/api/mining/watch-ad", {
+      const response = await fetch(`${backendAPI}/api/mining/watch-ad`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -176,7 +180,8 @@ const MiningPanel = ({ user }) => {
       }, 24 * 60 * 60 * 1000); // 24 hours
 
       try {
-        const response = await fetch("http://localhost:5000/api/mining/start-mining", {
+        // const response = await fetch("http://localhost:5000/api/mining/start-mining", {
+        const response = await fetch(`${backendAPI}/api/mining/start-mining`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -191,7 +196,8 @@ const MiningPanel = ({ user }) => {
       }
 
       try {
-        const response = await fetch("http://localhost:5000/api/mining/watch-ad", {
+        // const response = await fetch("http://localhost:5000/api/mining/watch-ad", {
+        const response = await fetch(`${backendAPI}/api/mining/watch-ad`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -214,7 +220,8 @@ const MiningPanel = ({ user }) => {
     // console.log("userId: ", userId)
   
     try {
-      const response = await fetch(`http://localhost:5000/api/mining/mining-sessions/${userId}`);
+      // const response = await fetch(`http://localhost:5000/api/mining/mining-sessions/${userId}`);
+      const response = await fetch(`${backendAPI}/api/mining/mining-sessions/${userId}`);
       const data = await response.json();
       setActiveSessions(data.miningSessions); // Update state with fetched sessions
     } catch (error) {
@@ -224,7 +231,8 @@ const MiningPanel = ({ user }) => {
 
   const fetchAdsWatchedCount = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/mining/ad-mining', {
+      // const response = await fetch('http://localhost:5000/api/mining/ad-mining', {
+      const response = await fetch(`${backendAPI}/api/mining/ad-mining`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -242,7 +250,8 @@ const MiningPanel = ({ user }) => {
 
   const fetchFreeMiningCount = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/mining/free-mining', {
+      // const response = await fetch('http://localhost:5000/api/mining/free-mining', {
+      const response = await fetch(`${backendAPI}/api/mining/free-mining`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -266,7 +275,8 @@ const MiningPanel = ({ user }) => {
 
   const updateBTCBalance = async (userId, minedAmount) => {
     try {
-      await fetch('http://localhost:5000/api/mining/btc-mined-update', {
+      // await fetch('http://localhost:5000/api/mining/btc-mined-update', {
+      await fetch(`${backendAPI}/api/mining/btc-mined-update`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ userId, minedAmount }),
@@ -287,7 +297,8 @@ const MiningPanel = ({ user }) => {
   };
 
   const initiateRazorpay = async (miner) => {
-    const res = await fetch("http://localhost:5000/api/payment/create-razorpay-order", {
+    // const res = await fetch("http://localhost:5000/api/payment/create-razorpay-order", {
+    const res = await fetch(`${backendAPI}/api/payment/create-razorpay-order`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ id: miner.id, name: miner.name, amount: miner.price, currency: miner.currency  })
@@ -309,7 +320,8 @@ const MiningPanel = ({ user }) => {
   };
   
   const initiateStripe = async (miner) => {
-    const res = await fetch("http://localhost:5000/api/payment/create-stripe-session", {
+    // const res = await fetch("http://localhost:5000/api/payment/create-stripe-session", {
+    const res = await fetch(`${backendAPI}/api/payment/create-stripe-session`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ id: miner.id, name: miner.name, amount: miner.price, currency: miner.currency })
@@ -341,7 +353,8 @@ const MiningPanel = ({ user }) => {
   useEffect(() => {
     const fetchBtcBalance = async () => {
       try {
-        const res = await fetch(`http://localhost:5000/api/mining/btc-balance?userId=${user.id}`);
+        // const res = await fetch(`http://localhost:5000/api/mining/btc-balance?userId=${user.id}`);
+        const res = await fetch(`${backendAPI}/api/mining/btc-balance?userId=${user.id}`);
         const data = await res.json();
         // console.log("data: ", data)
         // console.log("data.balance: ", data.balance)

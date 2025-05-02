@@ -5,6 +5,7 @@ const Navbar = ({ user, onProfileClick, isProfileVisible }) => {
   const [showWalletModal, setShowWalletModal] = useState(false);
   const [walletData, setWalletData] = useState({ amount: '', walletAddress: '' });
   const userId = user.id;
+  const backendAPI = "https://bitcoin-mania-backend.onrender.com";
 
   // console.log("Navbar.js ==> user: ", user)
 
@@ -24,7 +25,8 @@ const Navbar = ({ user, onProfileClick, isProfileVisible }) => {
     e.preventDefault();
     // console.log('Submitted Wallet Data:', walletData);
     try {
-      const res = await fetch('http://localhost:5000/api/mining/withdraw', {
+      // const res = await fetch('http://localhost:5000/api/mining/withdraw', {
+      const res = await fetch(`${backendAPI}/api/mining/withdraw`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
